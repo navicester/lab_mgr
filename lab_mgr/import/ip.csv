@@ -1,0 +1,2 @@
+id,IP_Type,Name,ip,netmask,gw,server_ip,serial_port,ssh_port,sftp_port,tftp_port,Product
+,public,,10.9.35.207,,,,,,,,I1
