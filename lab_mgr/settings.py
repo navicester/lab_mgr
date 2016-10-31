@@ -4,39 +4,18 @@ import os.path
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 ADMINS = (
     ('administrator', 'hebinn@163.com'),
 )
 
-MANAGERS = ADMINS
-
-if 'SERVER_SOFTWARE' in os.environ:
-    from sae.const import (
-        MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASS, MYSQL_DB
-    )
-else:
-    MYSQL_HOST = 'localhost'
-    MYSQL_PORT = '3306'
-    MYSQL_USER = 'root'
-    MYSQL_PASS = '123'
-    MYSQL_DB   = 'lab_mgr'
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': MYSQL_DB,                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': MYSQL_USER,
-        'PASSWORD': MYSQL_PASS,
-        'HOST': MYSQL_HOST,                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': MYSQL_PORT,                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'db.sqlite3',                      # Or path to database file if using sqlite3.
     }
 }
-
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
