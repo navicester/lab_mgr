@@ -78,7 +78,7 @@ class MyModelAdmin(admin.ModelAdmin):
         '''
 
     def filter_objects(self, fk_model, LinkObjClass, obj):
-        link_objs = None
+        link_objs = None        
         
         if  fk_model == lab_device_item:
             link_objs = LinkObjClass.objects.filter(lab_device_item = obj)
@@ -101,6 +101,9 @@ class MyModelAdmin(admin.ModelAdmin):
             link_objs = LinkObjClass.objects.filter(UE = obj)
         if  fk_model == PC:
             link_objs = LinkObjClass.objects.filter(PC = obj)
+
+        #print fk_model.__name__ +'__id'
+        #link_objs = LinkObjClass.objects.filter(**{fk_model.__name__+'__id' : obj})
 
         return link_objs
         
