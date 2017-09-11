@@ -1,6 +1,9 @@
 bin/
 include/
 lib/
+Scripts/
+
+*.bak
 
 pip-selfcheck.json
 *.sqlite3
